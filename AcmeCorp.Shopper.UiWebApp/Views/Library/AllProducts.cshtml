@@ -1,0 +1,15 @@
+﻿@model List<AcmeCorp.Shopper.UiWebApp.Product>;
+
+@{
+    ViewData["Title"] = "All";
+}
+
+<h1>All Products</h1>
+
+@foreach (var product in Model)
+{
+    <p>Product Id: @product.ProductId</p>
+    <p>Product Name: @product.ProductName</p>
+    <p>Product Price: @product.ProductPrice</p>
+    <hr />
+}
