@@ -1,45 +1,88 @@
-# AcmeCorp Shopper Application
+# AcmeCorpShopperApp
 
-This repository contains a full-stack shopping cart application built using **C#** and **ASP.NET Core**. It demonstrates a modular architecture with separate projects for the backend REST API and the frontend web application. The project showcases skills in web development, API design, and database integration.
+This solution contains a full-stack ASP.NET Core application with a RESTful API backend and an MVC web frontend. It enables basic product management functionality using Entity Framework Core and Razor views.
 
-## Overview
-
-The AcmeCorp Shopper Application is a shopping cart system designed to manage products and provide a user-friendly interface for customers. It consists of two main components:
-
-1. **Products REST API** (`AcmeCorp.Shopper.ProductsRestApi`):
-   - A backend service built with **ASP.NET Core** and **Entity Framework Core**.
-   - Provides CRUD operations for managing products.
-   - Exposes RESTful endpoints for integration with other services or applications.
-   - Includes **Swagger/OpenAPI** for API documentation and testing.
-   - Uses **SQL Server** as the database, with a connection managed via Entity Framework.
-
-2. **UI Web Application** (`AcmeCorp.Shopper.UiWebApp`):
-   - A frontend web application built with **ASP.NET Core MVC**.
-   - Implements a responsive user interface using **Bootstrap**.
-   - Displays product information fetched from the REST API.
-   - Includes server-side rendering with Razor views.
-   - Demonstrates client-side validation using **jQuery Validation** and **Unobtrusive Validation**.
-
-## Features
-
-- **Backend (ProductsRestApi)**:
-  - Create, read, update, and delete products.
-  - Query products by ID or name.
-  - Database integration with **Entity Framework Core**.
-  - API documentation via **Swagger UI**.
-
-- **Frontend (UiWebApp)**:
-  - Displays a list of products with details like ID, name, and price.
-  - Navigation and layout built with **Bootstrap**.
-  - Razor views for dynamic content rendering.
-  - Error handling and validation for user input.
+---
 
 ## Technologies Used
 
-- **Languages**: C#
-- **Frameworks**: ASP.NET Core, Entity Framework Core
-- **Frontend**: Bootstrap, jQuery, Razor Views
-- **Database**: SQL Server
-- **Tools**: Swagger/OpenAPI, Visual Studio
+- **Language**: C#
+- **Frameworks**: ASP.NET Core Web API & ASP.NET Core MVC
+- **Database**: Entity Framework Core with a data context
+- **Frontend**: Razor Views (MVC)
+- **Build Tool**: .NET SDK
+- **IDE**: Visual Studio / Visual Studio Code
+
+---
+
+## Solution Structure
+
+AcmeCorpShopperApp.sln             # Visual Studio solution file
+
+├── AcmeCorp.Shopper.ProductsRestApi     # Backend API (ASP.NET Core Web API)
+│   ├── Controllers/
+│   │   └── ProductsController.cs        # API endpoints for creating and reading products
+│   ├── Models/
+│   │   └── ProductsAcmeContext.cs       # EF Core DbContext for Product entity
+│   ├── appsettings.json                 # Configuration and DB setup
+│   └── Program.cs                       # Entry point for the Web API
+
+├── AcmeCorp.Shopper.UiWebApp           # Frontend MVC Web App (ASP.NET Core MVC)
+│   ├── Controllers/
+│   │   ├── HomeController.cs
+│   │   └── LibraryController.cs         # Interacts with the API
+│   ├── Models/
+│   │   └── ErrorViewModel.cs
+│   ├── Views/
+│   │   ├── Home/
+│   │   │   └── Index.cshtml, Privacy.cshtml
+│   │   ├── Library/
+│   │   │   └── AllProducts.cshtml       # Product listing Razor view
+│   │   └── Shared/                      # Shared layout, error, and partial views
+│   ├── wwwroot/
+│   │   ├── css/
+│   │   ├── js/
+│   │   └── lib/                         # Static assets (Bootstrap, jQuery, validation)
+│   └── Program.cs                       # Entry point for the MVC app
 
 
+---
+
+## 🔧 Functionality Overview
+
+### REST API (`AcmeCorp.Shopper.ProductsRestApi`)
+- `POST /api/products` → Create a new product (using EF Core)
+- `GET /api/products` → Get all products
+- `GET /api/products/{id}` → Get a product by ID
+
+### Frontend (`AcmeCorp.Shopper.UiWebApp`)
+- Razor views for displaying content
+- Shared layout and partial views
+- Likely fetches product data to display in the UI (e.g., `AllProducts.cshtml`)
+
+---
+
+## Getting Started
+
+### Prerequisites
+- [.NET 6 SDK or later](https://dotnet.microsoft.com/download)
+- Visual Studio or VS Code
+
+### Running the Application
+1. Open the solution in Visual Studio (`AcmeCorpShopperApp.sln`)
+2. Set both projects to run simultaneously if needed (API + UI)
+3. Launch and navigate to the UI (`UiWebApp`) which may call the API internally
+
+---
+
+## Future Enhancements
+- Add authentication and authorization
+- Connect to a persistent SQL database
+- Add client-side interactivity with JavaScript or a JS framework
+- API documentation via Swagger
+
+---
+
+## Notes
+- `ProductsAcmeContext` shows usage of Entity Framework Core for data persistence.
+- Controller actions are lightweight and clean, following RESTful conventions.
