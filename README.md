@@ -17,33 +17,7 @@ This solution contains a full-stack ASP.NET Core application with a RESTful API 
 
 ## Solution Structure
 
-AcmeCorpShopperApp.sln             # Visual Studio solution file
-
-├── AcmeCorp.Shopper.ProductsRestApi     # Backend API (ASP.NET Core Web API)
-│   ├── Controllers/
-│   │   └── ProductsController.cs        # API endpoints for creating and reading products
-│   ├── Models/
-│   │   └── ProductsAcmeContext.cs       # EF Core DbContext for Product entity
-│   ├── appsettings.json                 # Configuration and DB setup
-│   └── Program.cs                       # Entry point for the Web API
-
-├── AcmeCorp.Shopper.UiWebApp           # Frontend MVC Web App (ASP.NET Core MVC)
-│   ├── Controllers/
-│   │   ├── HomeController.cs
-│   │   └── LibraryController.cs         # Interacts with the API
-│   ├── Models/
-│   │   └── ErrorViewModel.cs
-│   ├── Views/
-│   │   ├── Home/
-│   │   │   └── Index.cshtml, Privacy.cshtml
-│   │   ├── Library/
-│   │   │   └── AllProducts.cshtml       # Product listing Razor view
-│   │   └── Shared/                      # Shared layout, error, and partial views
-│   ├── wwwroot/
-│   │   ├── css/
-│   │   ├── js/
-│   │   └── lib/                         # Static assets (Bootstrap, jQuery, validation)
-│   └── Program.cs                       # Entry point for the MVC app
+<pre> ```text AcmeCorpShopperApp.sln # Visual Studio solution file ├── AcmeCorp.Shopper.ProductsRestApi # Backend API (ASP.NET Core Web API) │ ├── Controllers/ │ │ └── ProductsController.cs # API endpoints for creating and reading products │ ├── Models/ │ │ └── ProductsAcmeContext.cs # EF Core DbContext for Product entity │ ├── appsettings.json # Configuration and DB setup │ └── Program.cs # Entry point for the Web API ├── AcmeCorp.Shopper.UiWebApp # Frontend MVC Web App (ASP.NET Core MVC) │ ├── Controllers/ │ │ ├── HomeController.cs │ │ └── LibraryController.cs # Interacts with the API │ ├── Models/ │ │ └── ErrorViewModel.cs │ ├── Views/ │ │ ├── Home/ │ │ │ └── Index.cshtml, Privacy.cshtml │ │ ├── Library/ │ │ │ └── AllProducts.cshtml # Product listing Razor view │ │ └── Shared/ # Shared layout, error, and partial views │ ├── wwwroot/ │ │ ├── css/ │ │ ├── js/ │ │ └── lib/ # Static assets (Bootstrap, jQuery, validation) │ └── Program.cs # Entry point for the MVC app ``` </pre>
 
 
 ---
